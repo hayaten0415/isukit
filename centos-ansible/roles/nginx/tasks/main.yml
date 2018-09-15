@@ -1,0 +1,16 @@
+---
+- name: Create directories for logs
+  file:
+    path: /var/log/nginx/isu/
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Copy files under /root
+  copy:
+    src: etc/
+    dest: /etc/
+    owner: root
+    group: root
+    mode: 0644
