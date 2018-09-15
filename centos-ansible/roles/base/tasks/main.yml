@@ -27,6 +27,7 @@
       - dstat
       - htop
       - nginx
+      - rh-ruby25
       - mysql-community-server
       - mysql-community-client
       - mysql-community-libs

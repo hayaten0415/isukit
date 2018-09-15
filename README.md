@@ -8,7 +8,11 @@ isucon-toolkit
 - git
 - dstat
 - htop
+- Ruby 2.5
+- nginx
 - alp (https://github.com/tkuchiki/alp)
+- MySQL 8.0 GA
+- mysqldef
 - Percona Toolkit (pt-query-digest)
 
 ## Notes
