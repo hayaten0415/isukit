@@ -1,8 +1,8 @@
 ---
-- hosts: honmono
+- hosts: all
 ##ユーザー名は分かり次第変更
   remote_user: root 
   become: yes
   tasks:
     - include_role:
-        name: base
+        name: common
