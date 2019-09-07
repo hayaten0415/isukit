@@ -109,4 +109,29 @@ cat /var/log/h2o/access.log | alp ltsv
 ```
 
 
+## Before BenchMark
+```
+1. systemctl restart mysql
+```
+```
+2. systemctl restart *****.ruby
+```
+```
+3. systemctl restart nginx
+```
+
+### Pt-query-digest Latest 
+https://stackoverflow.com/questions/38245395/pipeline-process-5-iteration-caused-an-error-redundant-argument-in-sprintf-at
+```
+wget https://repo.percona.com/apt/percona-release_0.1-10.$(lsb_release -sc)_all.deb
+```
+
+```
+dpkg -i percona-release_0.1-10.$(lsb_release -sc)_all.deb
+```
+
+```
+apt-get install percona-toolkit
+```
+
 
