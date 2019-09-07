@@ -1,10 +1,9 @@
 [honmono]
-対象のIPアドレス入れる
-
+IPアドレス入れる
 
 [honmono:vars]
 ##環境に応じて変える多分isucon?
 ansible_ssh_user=root
 ansible_ssh_port=22
 ##環境に応じて変える
-ansible_ssh_pass=********
+ansible_ssh_pass=*********

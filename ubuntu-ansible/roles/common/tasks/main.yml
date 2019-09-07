@@ -12,7 +12,6 @@
       - sysstat
       - dstat
       - htop
-      - nginx
       - byobu
       - zlib1g-dev 
       - uuid-dev 
@@ -57,11 +56,6 @@
 #     name: nginx
 #     enabled: yes
 
-# # - name: systemctl enable mysqld
-# #   systemd:
-# #     name: mysqld
-# #     enabled: yes
-
 
 ##やるか微妙??
 # - name: disable apparmor
@@ -101,13 +95,13 @@
 # #     dest: /usr/local/bin
 # #     mode: 0755
 
-# - name: Copy files under /etc
-#   copy:
-#     src: etc/
-#     dest: /etc/
-#     owner: root
-#     group: root
-#     mode: 0644
+- name: Copy files under /etc
+  copy:
+    src: etc/mysql/my.cnf
+    dest: /etc/mysql/my.cnf
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Copy files under /root
   copy:
@@ -130,3 +124,8 @@
     owner: root
     group: root
     mode: 0600
+
+# - name: systemctl enable mysql
+#   systemd:
+#     name: mysql
+#     enabled: yes

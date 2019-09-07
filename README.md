@@ -82,7 +82,7 @@ cat /proc/cpuinfo
 ansible-playbook -i isucon setup.yml -u isucon --private-key="rsa path"
 
 ### user
-ansible-playbook -i isucon -u <username>
+ansible-playbook -i isucon -u username
 
 # ISUCON Cheat Sheet
 ## h2o alp format(ltsv)
