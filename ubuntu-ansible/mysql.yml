@@ -1,0 +1,8 @@
+---
+- hosts: honmono
+##ユーザー名は分かり次第変更
+  remote_user: root
+  become: yes
+  tasks:
+    - include_role:
+        name: mysql8_update

@@ -1,0 +1,26 @@
+- name: MySQL Backup
+  mysql_db:
+    state: dump
+    name: all
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    login_user: "root"
+    login_password: "isucon"
+    target: /tmp/dump.sql
+
+
+- name: Download MySQL8pkg
+  get_url:
+    url: 'https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb'
+    dest: /tmp/mysql-apt-config_0.8.15-1_all.deb
+    owner: root
+    group: root
+    mode: 0644
+
+
+- name: Copy files my.cnf
+  copy:
+    src: etc/mysql/my.cnf
+    dest: /etc/mysql/my.cnf
+    owner: root
+    group: root
+    mode: 0644

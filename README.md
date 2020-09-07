@@ -11,11 +11,9 @@ isucon-toolkit
 - dstat
 - htop
 - nginx
-- alp (https://github.com/tkuchiki/alp) v0.4.0
+- alp (https://github.com/tkuchiki/alp) v1.0.3
 - Percona Toolkit (pt-query-digest)
 - byobu
-- netdata
-## netdata Depends on packages
 - zlib1g-dev 
 - uuid-dev 
 - libuv1-dev 
@@ -23,6 +21,7 @@ isucon-toolkit
 - libjudy-dev
 - libssl-dev 
 - libmnl-dev 
+- python3-pymysql 
 - gcc 
 - make 
 - git 
@@ -33,23 +32,38 @@ isucon-toolkit
 - pkg-config 
 - curl 
 - python
+- slackcat
 
-### netdata 
-- https://nishinatoshiharu.com/how-to-install-netdata/
-- port 19999
+
+## netdata Depends on packages
+- zlib1g-dev
+- uuid-dev
+- libuv1-dev
+- liblz4-dev
+- libjudy-dev
+- libssl-dev
+- libmnl-dev
+- gcc
+- make
+- git
+- autoconf
+- autoconf-archive
+- autogen
+- automake
+- pkg-config
+- curl
+- python
+
+
+## mysql_db module depends on packages
+- python3-pymysql
 
 ### Loading sysctl conf file
 - ☓ /etc/sysctl.conf
 - ○ /etc/sysctl.d/*.conf
 
-## Ubuntu 18.04 LTS
-### Systemd Version
-237
-
-
 ## Notes
 ### Check first
-- Security Group(Alibaba Cloud)
 - memory size
 ```
 cat /proc/memoinfo
@@ -61,17 +75,10 @@ cat /proc/cpuinfo
 - DB software
 - Web server middle
 
-
-
-
 ### MySQL tuning?
 - https://qiita.com/kkyouhei/items/d2c40d9e3952c7049ca3
 - https://qiita.com/ihsiek/items/11106ce7a13e09b61547
 - https://downloads.mysql.com/presentations/20151208_02_MySQL_Tuning_for_Beginners.pdf
-
-### netdata 
-- https://nishinatoshiharu.com/how-to-install-netdata/
-- port 19999
 
 # Ansible Playbook Execution
 
@@ -120,18 +127,13 @@ cat /var/log/h2o/access.log | alp ltsv
 3. systemctl restart nginx
 ```
 
-### Pt-query-digest Latest 
-https://stackoverflow.com/questions/38245395/pipeline-process-5-iteration-caused-an-error-redundant-argument-in-sprintf-at
-```
-wget https://repo.percona.com/apt/percona-release_0.1-10.$(lsb_release -sc)_all.deb
-```
+## slackcat configure
 
+1. configure
 ```
-dpkg -i percona-release_0.1-10.$(lsb_release -sc)_all.deb
+slackcat --configure
 ```
-
+2. copy token
 ```
-apt-get install percona-toolkit
+token issued: <copy token>
 ```
-
-
