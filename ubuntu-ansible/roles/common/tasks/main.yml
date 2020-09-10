@@ -75,17 +75,25 @@
     group: root
     mode: 0644
 
-- name: slackcat install
-  unarchive:
-    remote_src: yes
-    src: /tmp/slackcat
-    dest: /usr/local/bin
+- name: stat slackcat
+  stat: path=/tmp/slackcat
+  register: slackcat_stat
+
+- name: mv slackcat
+  command: mv /tmp/slackcat /usr/local/bin/slackcat
+  when: slackcat_stat.stat.exists
+
+- name: chmod slackcat
+  file:
+    path: /usr/local/bin/slackcat
+    owner: root
+    group: root
     mode: 0755
 
 - name: Copy files shell
   copy:
     src: shell/
-    dest: /home/isucon/my.cnf
+    dest: /root/
     owner: root
     group: root
     mode: 0755
